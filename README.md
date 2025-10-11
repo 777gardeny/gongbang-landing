@@ -1,2 +1,2 @@
-# seniorai-landing
-시니어AI 랜딩페이지
+# gongbang-landing
+공방큐레이터
