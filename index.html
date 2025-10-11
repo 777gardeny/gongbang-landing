@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대전 유성의 새로운 가능성: 심야 공방 큐레이터</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            line-height: 1.7;
+            color: #2d3748;
+            background: #fafafa;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            font-weight: 300;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #f6ad55;
+            color: white;
+            padding: 18px 45px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(246, 173, 85, 0.4);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(246, 173, 85, 0.5);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            padding: 80px 20px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #1a202c;
+        }
+        
+        .pain-points {
+            background: white;
+        }
+        
+        .pain-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .pain-card:hover {
+            transform: translateX(10px);
+        }
+        
+        .pain-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        
+        .pain-card p {
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+        
+        .value-props {
+            background: linear-gradient(to bottom, #fafafa, #fff);
+        }
+        
+        .value-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover {
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+        
+        .value-card .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .value-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #667eea;
+            font-weight: 700;
+        }
+        
+        .mvp-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .mvp-section .section-title {
+            color: white;
+        }
+        
+        .mvp-table {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .mvp-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .mvp-table td {
+            padding: 25px 30px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .mvp-table td:first-child {
+            font-weight: 700;
+            color: #667eea;
+            width: 30%;
+            font-size: 1.1rem;
+        }
+        
+        .mvp-table td:last-child {
+            color: #2d3748;
+            font-size: 1.05rem;
+        }
+        
+        .mvp-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .vision-section {
+            background: white;
+            text-align: center;
+        }
+        
+        .quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #4a5568;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.9;
+            padding: 30px;
+            border-left: 5px solid #f6ad55;
+            background: #fffaf0;
+            border-radius: 10px;
+        }
+        
+        .footer {
+            background: #1a202c;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        
+        .footer a {
+            color: #f6ad55;
+            text-decoration: none;
+        }
+        
+        .partners {
+            margin-top: 20px;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .mvp-table td {
+                display: block;
+                width: 100%;
+                padding: 15px 20px;
+            }
+            
+            .mvp-table td:first-child {
+                background: #f7fafc;
+                font-weight: 700;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>🚀 대전 유성 퇴근 후,<br>진짜 나를 만나는 공간:<br>심야 공방 큐레이터</h1>
+            <p class="subtitle">손으로 만드는 시간의 가치를 재발견하는 프리미엄 로컬 서비스</p>
+            <a href="#mvp" class="cta-button">👉 핸즈온 나이트 파일럿 신청하기</a>
+        </div>
+    </div>
+
+    <div class="section pain-points">
+        <div class="container">
+            <h2 class="section-title">🎯 당신의 이야기가 아닐까요?</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px; color: #4a5568;">
+                <strong>2030 직장인, 1인 가구</strong>가 겪는 해결되지 않은 불편함
+            </p>
+            
+            <div class="pain-card">
+                <h3>✅ 퇴근 후 갈 곳이 없어요</h3>
+                <p>회사와 집을 오가는 반복된 일상 속에서 나만의 취미나 여가를 즐길 공간을 찾기 어렵습니다. 카페는 시끄럽고, 집은 너무 익숙해서 새로운 영감을 얻기 힘들죠.</p>
+            </div>
+            
+            <div class="pain-card">
+                <h3>✅ 혼자서는 시작하기 두려워요</h3>
+                <p>새로운 취미를 배우고 싶지만 혼자 시작하기엔 부담스럽고, 동네에서 비슷한 관심사를 가진 사람들을 만나기도 쉽지 않습니다.</p>
+            </div>
+            
+            <div class="pain-card">
+                <h3>✅ 지역 문화 인프라가 부족해요</h3>
+                <p>대전 유성에 살지만 정작 제대로 된 문화 활동 공간이나 커뮤니티를 찾기 어렵습니다. 대부분의 프로그램은 서울에 집중되어 있어요.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section value-props">
+        <div class="container">
+            <h2 class="section-title">✨ 심야 공방 큐레이터의 약속</h2>
+            
+            <div class="value-card">
+                <div class="icon">🏠</div>
+                <h3>1. 독자적인 경험: 지역 유휴 공간의 재발견</h3>
+                <p><strong>문 닫은 동네 공방, 빈 갤러리 공간</strong>을 활용하여 <strong>2030 직장인의 창작 욕구</strong>에 맞춘 <strong>프라이빗하고 트렌디한 야간 작업실</strong>을 제공합니다. 오후 9시 이후, 조용히 집중할 수 있는 나만의 아틀리에를 경험하세요.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="icon">👨‍🎨</div>
+                <h3>2. 창직자 기반의 전문성: 김서연님의 핵심 역량</h3>
+                <p><strong>김서연</strong> 코디네이터의 <strong>공예 디렉팅 경력 7년, 커뮤니티 빌딩 전문성</strong>을 바탕으로, 재료 준비부터 작품 완성까지 세심하게 가이드하여 <strong>참여 부담을 최소화</strong>합니다. 초보자도 첫날부터 완성작을 만들어갈 수 있습니다.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="icon">🤝</div>
+                <h3>3. 지속 가능한 커뮤니티: 지역 정주의 동력</h3>
+                <p>우리의 서비스는 단순히 모임을 넘어, <strong>대전 유성의 장기 거주 만족도 향상</strong>을 목표로 하며 <strong>유성구청 청년센터</strong> 및 <strong>로컬 공방 네트워크</strong>와 연계하여 안정적인 운영을 보장합니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section mvp-section" id="mvp">
+        <div class="container">
+            <h2 class="section-title">📋 핸즈온 나이트 상세 안내</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px; opacity: 0.95;">
+                성공 가능성 검증을 위한 첫걸음
+            </p>
+            
+            <div class="mvp-table">
+                <table>
+                    <tr>
+                        <td>MVP 형태</td>
+                        <td>4주 파일럿 프로그램 (매주 목요일 저녁 9-11시)</td>
+                    </tr>
+                    <tr>
+                        <td>타겟 및 인원</td>
+                        <td>2030 직장인 12명 (선착순 마감)</td>
+                    </tr>
+                    <tr>
+                        <td>참가비</td>
+                        <td>1인 18만원 (재료비, 공간비, 차/간식 포함)</td>
+                    </tr>
+                    <tr>
+                        <td>프로그램 내용</td>
+                        <td>도자기 핸드빌딩, 가죽 소품 제작, 목공 DIY, 자유 창작</td>
+                    </tr>
+                    <tr>
+                        <td>검증 목표</td>
+                        <td>재참여 의사율 <strong>70%</strong> 이상 달성</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="section vision-section">
+        <div class="container">
+            <h2 class="section-title">🤝 로컬 코디네이터, 김서연의 비전</h2>
+            <div class="quote">
+                "제가 가장 중요하게 생각하는 <strong>'손으로 만드는 시간의 가치'</strong>를 이 지역에서 실현하며, 여러분의 일상에 <strong>'창작하는 즐거움'</strong>을 연결해 드리겠습니다."
+            </div>
+            <a href="#mvp" class="cta-button">✨ 핸즈온 나이트 신청하고 새로운 로컬 라이프 시작하기!</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>문의:</strong> <a href="mailto:handson@daejeon.local">handson@daejeon.local</a> | 카카오톡: @심야공방</p>
+        <p class="partners"><strong>함께하는 파트너:</strong> 유성구청 청년센터, 대전 로컬 공방 네트워크</p>
+        <p style="margin-top: 30px; opacity: 0.7; font-size: 0.9rem;">© 2025 대전 유성 심야 공방 큐레이터. All rights reserved.</p>
+    </div>
+</body>
+</html>
